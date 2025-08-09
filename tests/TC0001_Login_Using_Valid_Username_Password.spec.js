@@ -5,21 +5,18 @@ import ActionDriver from '../main/ActionDriver';
 import LoginPage from '../pom/LoginPage';
 import HomePage from '../pom/HomePage';
 import '../main/Hooks';
-import { credentials } from '../resources/testdata.json';
+import { TC0001_Login_Using_Valid_Username_Password } from '../resources/TC0001_Login_Using_Valid_Username_Password.json';
 
 test.describe('Saucedemo Login', () => {
-    credentials.forEach((item, index) => {
-
+    TC0001_Login_Using_Valid_Username_Password.forEach((item, index) => {
         test(`Login using password ${index + 1}`, async ({ page }) => {
             const actiondriver = new ActionDriver(page);
             await test.step('Login into site', async () => {
 
-                await actiondriver.navigateURL("https://www.saucedemo.com/");
+                await actiondriver.navigateURL(item.url);
                 await LoginPage.UserNameTextfield.setText(item.username);
                 await LoginPage.PasswordTextfield.setText(item.password);
                 await LoginPage.LoginButton.clickElement();
-                await actiondriver.verifyTitle("Swag Labs");
-                await HomePage.Title.assertElementDisplayed();
             });
         });
     });

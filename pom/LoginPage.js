@@ -10,21 +10,21 @@ class LoginPage {
         LoginPage.actiondriver = new ActionDriver(page);
     }
     static UserNameTextfield = {
-        locator: "//input[@id='user-name']",
+        locator: "//input[@name='username']",
         setText: async function (value) {
             await LoginPage.actiondriver.setText(this.locator, value);
         }
     };
 
     static PasswordTextfield = {
-        locator: "//input[@id='password']",
+        locator: "//input[@name='password']",
         setText: async function (value) {
             await LoginPage.actiondriver.setText(this.locator, value);
         }
     };
 
     static LoginButton = {
-        locator: "//input[@id='login-button']",
+        locator: "//button[contains(.,'Login')]",
         clickElement: async function () {
             await LoginPage.actiondriver.clickElement(this.locator);
         }
