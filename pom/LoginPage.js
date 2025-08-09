@@ -2,13 +2,13 @@
 import ActionDriver from '../main/ActionDriver';
 require('@playwright/test');
 
-
 class LoginPage {
     static actiondriver;
 
     static initialize(page) {
         LoginPage.actiondriver = new ActionDriver(page);
     }
+
     static UserNameTextfield = {
         locator: "//input[@name='username']",
         setText: async function (value) {

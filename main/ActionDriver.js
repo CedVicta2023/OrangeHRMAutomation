@@ -39,6 +39,15 @@ class ActionDriver {
 
     }
 
+    async waitForPageToLoad() {
+        await this.page.waitForLoadState('networkidle');
+    }
+
+    //verify element if is not displayed
+    async assertElementNotDisplayed(locator) {
+        await expect(this.getElement(locator)).toBeHidden();
+    }
+
 }
 export default ActionDriver;
 
