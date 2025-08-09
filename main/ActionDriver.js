@@ -48,6 +48,13 @@ class ActionDriver {
         await expect(this.getElement(locator)).toBeHidden();
     }
 
+    async selectOptionByName(option) {
+        await this.page.getByRole('option', { name: option }).click();
+    }
+
+    async selectOptionByIndex() {
+        await this.page.selectOption({index: 1});
+    }
 }
 export default ActionDriver;
 
