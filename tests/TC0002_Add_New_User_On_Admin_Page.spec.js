@@ -6,9 +6,8 @@ import LoginPage from '../pom/LoginPage';
 import AdminPage from '../pom/AdminPage';
 import Navigation from '../pom/Navigation';
 import '../main/Hooks';
-import { TC0001_Login_Using_Valid_Username_Password } from '../resources/TC0001_Login_Using_Valid_Username_Password.json';
-// Import or define loginUsingValidCredentials
-import loginUsingValidCredentials from '../main/ModuleGroup';
+import { TC0002_Add_New_User_On_Admin_Page } from '../resources/TC0002_Add_New_User_On_Admin_Page.json';
+import {loginUsingValidCredentials, addNewUser } from '../main/ModuleGroup';
 
 
 test.use({
@@ -19,7 +18,7 @@ test.use({
 });
 
 test.describe('OrangeHRM Admin', () => {
-    TC0001_Login_Using_Valid_Username_Password.forEach((item, index) => {
+    TC0002_Add_New_User_On_Admin_Page.forEach((item, index) => {
         test(`Login using password ${index + 1}`, async ({ page }) => {
             const actiondriver = new ActionDriver(page);
             Navigation.initialize(page);
@@ -35,20 +34,11 @@ test.describe('OrangeHRM Admin', () => {
             });
 
             await test.step('Add New User', async () => {
-                await AdminPage.clickBtnAddUser.clickElement()
-                await AdminPage.clickDropDownUserRole.clickElement();
-                await AdminPage.selectUserRoleOption.selectOption('ESS');
-                await AdminPage.EmployeeNameTextfieldHint.setText('L');
-                await AdminPage.EmployeeNameSelectOption.selectOption();
-                await AdminPage.clickDropDownStatus.clickElement();
-                await AdminPage.selectStatusOption.selectOption('Enabled');
-                await AdminPage.UsernameTextfield.setText('Jorge.Perez');
-                await AdminPage.PasswordTextfield.setText('Password123');
-                await AdminPage.ConfirmPasswordTextfield.setText('Password123');
-                await AdminPage.SaveNewUserButton.clickElement();
+                await AdminPage.clickBtnAddUser.clickElement();
+                await addNewUser(item);
             });
 
-            await page.waitForTimeout(10000);
+            await page.waitForTimeout(3000);
         });
     });
 });

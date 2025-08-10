@@ -37,10 +37,10 @@ class AdminPage {
       }
   };
 
-  static EmployeeNameSelectOption = {
-      selectOption: async function () {
-          await AdminPage.actiondriver.selectOptionByIndex();
-      }
+  static selectEmployeeName = {
+    selectOption: async function (option) {
+      await AdminPage.actiondriver.selectOptionByName(option);
+    }
   };
 
   static clickDropDownStatus = {
@@ -78,11 +78,11 @@ class AdminPage {
   };
 
   static SaveNewUserButton = {
-        locator: "//button[text()=' Save ']",
-        clickElement: async function () {
-            await AdminPage.actiondriver.clickElement(this.locator);
-        }
-    };
+      locator: "//button[text()=' Save ']",
+      clickElement: async function () {
+          await AdminPage.actiondriver.clickElement(this.locator);
+      }
+  };
 }
 
 export default AdminPage;
