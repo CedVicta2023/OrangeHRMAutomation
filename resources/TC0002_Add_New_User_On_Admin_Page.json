@@ -1,0 +1,14 @@
+{
+    "TC0002_Add_New_User_On_Admin_Page":[
+        {   
+            "url":"https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
+            "username":"Peter.Mac.Anderson",
+            "password":"Password123TestAutomation_///;",
+            "userrole":"ESS",
+            "employeeName":"Amelia Brown",
+            "status":"Enabled",
+            "usernameNew":"Amelia.Brown",
+            "passwordNew":"Password123TestAutomation_///;"
+        }
+    ]
+}

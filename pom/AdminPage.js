@@ -15,7 +15,73 @@ class AdminPage {
     clickElement: async function () {
       await AdminPage.actiondriver.clickElement(this.locator);
     }
+  };
 
+  static clickDropDownUserRole = {
+    locator: "//label[contains(text(),'User Role')]/parent::div/parent::div/div/div[@class='oxd-select-wrapper']/div",
+    clickElement: async function () {
+      await AdminPage.actiondriver.clickElement(this.locator);
+    }
+  };
+
+  static selectUserRoleOption = {
+    selectOption: async function (option) {
+      await AdminPage.actiondriver.selectOptionByName(option);
+    }
+  };
+
+  static EmployeeNameTextfieldHint = {
+      locator: "//label[contains(text(),'Employee Name')]/parent::div/parent::div/div/div/div/input",
+      setText: async function (value) {
+          await AdminPage.actiondriver.setText(this.locator, value);
+      }
+  };
+
+  static selectEmployeeName = {
+    selectOption: async function (option) {
+      await AdminPage.actiondriver.selectOptionByName(option);
+    }
+  };
+
+  static clickDropDownStatus = {
+    locator: "//label[contains(text(),'Status')]/parent::div/parent::div/div/div[@class='oxd-select-wrapper']/div",
+    clickElement: async function () {
+      await AdminPage.actiondriver.clickElement(this.locator);
+    }
+  };
+
+  static selectStatusOption = {
+    selectOption: async function (option) {
+      await AdminPage.actiondriver.selectOptionByName(option);
+    }
+  };
+
+  static UsernameTextfield = {
+      locator: "//label[contains(text(),'Username')]/parent::div/parent::div/div/input",
+      setText: async function (value) {
+          await AdminPage.actiondriver.setText(this.locator, value);
+      }
+  };
+
+  static PasswordTextfield = {
+      locator: "//label[text()='Password']/parent::div/parent::div/div/input",
+      setText: async function (value) {
+          await AdminPage.actiondriver.setText(this.locator, value);
+      }
+  };
+
+  static ConfirmPasswordTextfield = {
+      locator: "//label[text()='Confirm Password']/parent::div/parent::div/div/input",
+      setText: async function (value) {
+          await AdminPage.actiondriver.setText(this.locator, value);
+      }
+  };
+
+  static SaveNewUserButton = {
+      locator: "//button[text()=' Save ']",
+      clickElement: async function () {
+          await AdminPage.actiondriver.clickElement(this.locator);
+      }
   };
 }
 
