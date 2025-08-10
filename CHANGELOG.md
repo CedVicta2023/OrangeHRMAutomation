@@ -13,3 +13,4 @@ Date: 08/09/2025 - Ced
         - Add object for Admin on navbar
         - Add object for Add user on Admin page
         - Update jobs name on main.yml
+        - Add Addnewuser method on modulegroups.js
