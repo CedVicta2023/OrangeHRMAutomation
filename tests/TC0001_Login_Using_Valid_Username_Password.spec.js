@@ -11,8 +11,12 @@ test.describe('OrangeHRM Login', () => {
     TC0001_Login_Using_Valid_Username_Password.forEach((item, index) => {
         test(`Login using password ${index + 1}`, async ({ page }) => {
             const actiondriver = new ActionDriver(page);
-            await test.step('Login into site', async () => {
+            await test.step(`Access URL ${item.url}`, async () => {
+                await actiondriver.navigateURL(item.url);
+                
+            });
 
+            await test.step('Login into site', async () => {
                 await actiondriver.navigateURL(item.url);
                 await LoginPage.UserNameTextfield.setText(item.username);
                 await LoginPage.PasswordTextfield.setText(item.password);

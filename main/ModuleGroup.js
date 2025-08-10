@@ -5,8 +5,6 @@ import AdminPage from '../pom/AdminPage';
 
 async function loginUsingValidCredentials (page,item) {
     const actiondriver = new ActionDriver(page);
-
-    await actiondriver.navigateURL(item.url);
     await LoginPage.UserNameTextfield.setText(item.username);
     await LoginPage.PasswordTextfield.setText(item.password);
     await LoginPage.LoginButton.clickElement();
