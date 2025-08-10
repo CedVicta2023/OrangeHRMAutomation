@@ -1,8 +1,6 @@
 // @ts-check
-import { faker } from '@faker-js/faker';
 import { test } from '@playwright/test';
 import ActionDriver from '../main/ActionDriver';
-import LoginPage from '../pom/LoginPage';
 import AdminPage from '../pom/AdminPage';
 import Navigation from '../pom/Navigation';
 import '../main/Hooks';
@@ -23,7 +21,7 @@ test.describe('OrangeHRM Admin', () => {
             const actiondriver = new ActionDriver(page);
             await test.step(`Access URL ${item.url}`, async () => {
                 await actiondriver.navigateURL(item.url);
-                
+                await actiondriver.waitForPageToLoad();
             });
 
             await test.step('Login into site', async () => {
