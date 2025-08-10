@@ -12,17 +12,19 @@ import {loginUsingValidCredentials, addNewUser } from '../main/ModuleGroup';
 
 test.use({
     viewport: {
-        height: 880,
+        height: 1080,
         width: 1920
     }
 });
 
 test.describe('OrangeHRM Admin', () => {
     TC0002_Add_New_User_On_Admin_Page.forEach((item, index) => {
-        test(`Login using password ${index + 1}`, async ({ page }) => {
+        test(`Add new ESS user`, async ({ page }) => {
             const actiondriver = new ActionDriver(page);
-            Navigation.initialize(page);
-            AdminPage.initialize(page); 
+            await test.step(`Access URL ${item.url}`, async () => {
+                await actiondriver.navigateURL(item.url);
+                
+            });
 
             await test.step('Login into site', async () => {
                 await loginUsingValidCredentials(page,item);
